@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Music Kesukaanmu</title>
+    <style>
+        #lyrics-container {
+            position: relative;
+            width: 100%;
+            height: 300%;
+            overflow: hidden;
+        }
+
+        #lyrics {
+            position: absolute;
+            top: 20%;
+            transform: translateY(-50%);
+            width: 85%;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            color:black;
+            text-align: center;
+            font-style: italic;
+            font-display: swap;
+            font-size: 25px;
+            white-space:nowrap;
+        }
+    </style>
+</head>
+<body background="love.gif">
+    <h1 style="color: white; text-align: center;">we'll be okay, for today</h1>
+
+
+    <audio id="myAudio" controls>
+        <source src="well-be-okay.m4a" type="MPEG-4 Audio">
+        Maaf, browser anda tidak mendukung pemutar music ini.
+    </audio>
+ 
+    <div id="lyrics-container">
+        <div id="lyrics"> Jangan nyanyi</div>
+    </div>
+
+    <script>
+        var audio = document.getElementById("myAudio");
+        var lyricsContainer = document.getElementById("lyrics-container");
+        var lyricsText = document.getElementById("lyrics");
+
+ var lyrics = [
+        {time : 5, text: "Should i stay? (should i stay)" },
+        {time : 5, text: "Should i leave? (should i leave)" },
+        {time : 11, text: "Keep picking up this broken pieces of me" },
+        {time : 14, text: "if i could (wish i could)" },
+        {time : 16, text:"Take it back (to ur dreams)"},
+        {time : 20, text:"Wouldn't it be better if we never met"},
+        {time : 25, text:"All the hopes and promises i should've kept"},
+        {time : 30, text:"Knew that it would end what more can we expect?"},
+        {time : 33, text:"Hmm-mm"},
+        {time : 38, text:"It's okay to cry"},
+        {time : 40, text:"For a little while"},
+        {time : 42, text:"We'll just keep trying to find a way out"},
+        {time : 44, text:"In another life"},
+        {time : 46, text:"Another time"},
+    {time : 48, text:"Maybe we'll be alright"},
+    {time : 50, text:"Sooner or later we'll just laugh it out"},
+    {time : 55, text:"There'll be nothing left here to worry about"},
+    {time : 58, text:"In my arms you'll stay"},
+    {time : 58, text:"And i'll keep u safe"},
+    {time : 62, text:"And we'll be okay"},
+    {time : 65, text:"At least for today"},
+    {time : 68, text:"I'm okay (we're okay)"},
+    {time : 71, text:"We're okay (we're okay)"},
+    {time : 82, text:"And we'll be happy once everything ends"},
+    {time : 84, text:"Tell me why, should we try"},
+    {time : 87, text:"Can we just feel enough"},
+    {time : 90, text:"Wouldn't it be better if we never met"},
+    {time : 93, text:"All the hopes and promises i should've kept"},
+    {time : 98, text:"Knew that it would end what more can we expect?"},
+    {time : 98, text:"abis ini bakal agak kecepetan dikit"},
+    {time : 101, text:"it's okay to cry"},
+    {time : 106, text:"For a little while"},
+    {time : 110, text:"We'll just keep trying and find a way out"},
+    {time : 115, text:"In another life"},
+    {time : 118, text:"Another time"},
+    {time : 123, text:"Maybe we'll be alright"},
+    {time : 125, text:"Sooner or later we'll just laugh it out"},
+    {time : 127, text:"There'll be nothing left here to worry about"},
+    {time : 131, text:"In my arms u stay"},
+    {time : 135, text:"And i'll keep u safe"},
+    {time : 140, text:"And we'll be okay"},
+    {time : 142, text:"At least for today"},
+    {time : 142, text:"Maybe once when we get older"},
+    {time : 144, text:"We figure things have our way it'll get better"},
+    {time : 148, text:"Promise me you'll come back stronger"},
+    {time : 150, text:"I'll wait right here for you"},
+    {time : 153, text:"It's okay to cry"},
+    {time : 159, text:"For a little while"},
+    {time : 162, text:"We'll just keep trying and find a way out"},
+    {time : 169, text:"In another life"},
+    {time : 172, text:"Another time"},
+    {time : 179, text:"Maybe we'll be alright"},
+    {time : 181, text:"Sooner or later we'll just laugh it out"},
+    {time : 183, text:"There'll be nothing left here to worry about"},
+    {time : 186, text:"In my arms you'll stay"},
+    {time : 190, text:"And i'll keep u safe"},
+    {time : 195, text:"And we'll be okay"},
+    {time : 198, text:"it's okay to cry"},
+    { time : 199, text:"For a little while"},
+    { time : 204, text:"We'll be alright"},
+    { time : 209, text:"At least for today"},
+    { time : 212},
+    ]
+    audio.addEventListener("timeupdate", function() {
+        for (var i = 0; i < lyrics.length; i++) {
+            if (audio.currentTime >= lyrics[i].time) {
+                lyricsText.innerHTML = lyrics[i].text;
+                var animationDuration = (lyrics[i + 1] ? lyrics[i + 1].time : audio.duration) - lyrics[i].time
+                lyricsText.style.animation = `moveext ${animationDuration}s linear` ;
+            }
+        }
+    });
+    </script>
+</body>
+</html>
